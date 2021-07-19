@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "./Nav/Nav";
+import Nav from "../../../components/Nav/Nav";
 import heroImage from "../../../images/hero_image.png";
 import { Link } from "react-router-dom";
 

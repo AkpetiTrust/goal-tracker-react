@@ -11,6 +11,20 @@
           align-items: center;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 15px;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -87,6 +101,35 @@ body {
   height: 180px;
 }
 
+.home-main .get-started .title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+}
+
+.home-main .get-started .title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50%;
+  height: 5px;
+  background-color: #210440;
+}
+
+.home-main .get-started .talk {
+  margin-top: 40px;
+  width: 300px;
+}
+
+.home-main .get-started .talk a {
+  text-decoration: none;
+  color: #1b17d9;
+}
+
 @-webkit-keyframes slideDown {
   to {
     -webkit-transform: scaleY(0);
@@ -104,6 +147,9 @@ body {
 @media screen and (max-width: 600px) {
   .home-main .hero {
     border-radius: 0;
+  }
+  .home-main .get-started .talk {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=index.css.map */

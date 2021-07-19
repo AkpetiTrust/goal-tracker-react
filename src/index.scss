@@ -2,6 +2,20 @@
 @import "./css/utilities/variables";
 @import "./css/utilities/utilities";
 
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 15px;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -76,6 +90,35 @@ body {
       height: 180px;
     }
   }
+
+  .get-started {
+    .title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      width: max-content;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50%;
+        height: 5px;
+        background-color: $primary-color;
+      }
+    }
+
+    .talk {
+      margin-top: 40px;
+      width: 300px;
+
+      a {
+        text-decoration: none;
+        color: #1b17d9;
+      }
+    }
+  }
 }
 
 @keyframes slideDown {
@@ -85,7 +128,13 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  .home-main .hero {
-    border-radius: 0;
+  .home-main {
+    .hero {
+      border-radius: 0;
+    }
+
+    .get-started .talk {
+      width: 100%;
+    }
   }
 }

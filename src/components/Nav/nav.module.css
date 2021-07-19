@@ -1,0 +1,117 @@
+.link {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.8rem;
+  position: relative;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+}
+
+/* Toggler */
+.toggler {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.toggler::before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #e3e212;
+  transition: transform 0.5s;
+}
+
+.toggler span {
+  display: block;
+  width: 15px;
+  height: 3px;
+  background-color: #e3e212;
+  transition: transform 0.5s;
+  margin: 4px 0;
+}
+
+.toggler::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #e3e212;
+  transition: transform 0.5s;
+}
+
+@media screen and (max-width: 600px) {
+  .toggler {
+    display: inline-block;
+  }
+
+  .toggler.active::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .toggler.active span {
+    transform: translateX(-100px);
+  }
+
+  .toggler.active::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: #888;
+    transition: clip-path 0.6s;
+    clip-path: circle(0% at top left);
+  }
+
+  .nav li {
+    overflow: hidden;
+  }
+
+  .nav a {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s 0.3s, opacity 0.5s 0.3s;
+  }
+
+  .nav.active {
+    clip-path: circle(150% at top left);
+  }
+
+  .nav.active a {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
