@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap");
+@import "./css/utilities/variables";
+@import "./css/utilities/utilities";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.home-main {
+  &::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: #fff;
+    transform-origin: bottom;
+    animation: slideDown 1s 4s forwards;
+  }
+
+  .hero {
+    background-color: $primary-color;
+    color: #fff;
+    min-height: 70vh;
+    border-bottom-left-radius: 250px;
+
+    .talk {
+      margin-top: 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+      width: max-content;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        width: 100%;
+        height: 4px;
+        background-color: $secondary-color;
+        z-index: -1;
+      }
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 1.7rem;
+      line-height: 1.4;
+    }
+
+    .action-btn {
+      outline: none;
+      border: none;
+      padding: 5px 18px;
+      background-color: $tertiary-color;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 700;
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+
+  .cards-section {
+    p {
+      font-weight: 700;
+    }
+
+    .img {
+      height: 180px;
+    }
+  }
+}
+
+@keyframes slideDown {
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-main .hero {
+    border-radius: 0;
+  }
+}
