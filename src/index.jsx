@@ -4,12 +4,14 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
+import Signup from "./pages/signup/Signup";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route path='/' exact component={Home} />
+        <Route path='/signup' exact component={Signup} />
       </Switch>
     </Router>
   </React.StrictMode>,

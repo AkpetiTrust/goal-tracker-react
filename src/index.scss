@@ -121,9 +121,88 @@ body {
   }
 }
 
+.signup {
+  background-color: $primary-color;
+  color: #fff;
+
+  .signup-hero {
+    svg {
+      width: 200px;
+    }
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: $secondary-color;
+      z-index: -1;
+    }
+  }
+
+  .form-area {
+    display: flex;
+    justify-content: center;
+    form {
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #fff;
+        outline: none;
+        background-color: transparent;
+        border-radius: 20px;
+        margin-top: 10px;
+        color: #fff;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        background-color: $secondary-color;
+        width: 100%;
+        border-radius: 20px;
+        padding: 5px 0;
+        font-weight: 700;
+      }
+
+      .switch {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 @keyframes slideDown {
   to {
     transform: scaleY(0);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .signup .form-area {
+    justify-content: flex-end;
+
+    form {
+      width: 300px;
+    }
   }
 }
 
