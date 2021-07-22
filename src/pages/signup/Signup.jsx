@@ -2,10 +2,10 @@ import React from "react";
 import Main from "./components/Main";
 import Footer from "../../components/footer/Footer";
 
-const Signup = () => {
+const Signup = ({ history }) => {
   return (
     <div className='signup'>
-      <Main />
+      <Main history={history} />
       <Footer />
     </div>
   );

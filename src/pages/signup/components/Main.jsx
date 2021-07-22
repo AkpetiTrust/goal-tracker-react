@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import Nav from "../../../components/Nav/Nav";
 import instance from "../../../axios";
+import FormButton from "../../../components/FormButton/FormButton";
 
-const Main = () => {
+const Main = ({ history }) => {
   const [page, setPage] = useState({
     name: "signup",
     title: "CREATE AN ACCOUNT TO GET STARTED",
@@ -37,7 +38,7 @@ const Main = () => {
     onSubmit: handleSignUp,
   });
 
-  const [navItems, setNavItems] = useState([
+  const [navItems] = useState([
     {
       name: "HOME",
       path: "/",
@@ -52,7 +53,16 @@ const Main = () => {
     },
   ]);
 
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState({});
+
+  const [loginError, setLoginError] = useState("");
+
   function switchFunction() {
+    document.querySelector("form").reset();
+    setError({});
+    setLoginError("");
     setPage((prevPage) =>
       prevPage.name === "login"
         ? {
@@ -114,22 +124,51 @@ const Main = () => {
                 </span>
               </>
             ),
-            // onSubmit: handleLogin,
+            onSubmit: handleLogin,
           }
     );
   }
 
   function handleSignUp(e) {
     e.preventDefault();
+    setLoading(true);
+    setError({});
     const name = e.currentTarget.name.value;
     const email = e.currentTarget.email.value;
     const password = e.currentTarget.password.value;
     instance
       .post("/signup", { name, email, password })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        instance.post("/login", { email, password }).then((response) => {
+          localStorage.setItem("access_token", response.data.token);
+          // history.push("/");
+          setLoading(false);
+        });
       })
-      .catch((e) => console.log(e.response));
+      .catch((e) => {
+        setError(e.response.data);
+        setLoading(false);
+      });
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    setLoading(true);
+    setLoginError("");
+    const email = e.currentTarget.email.value;
+    const password = e.currentTarget.password.value;
+    instance
+      .post("/login", { email, password })
+      .then((response) => {
+        localStorage.setItem("access_token", response.data.token);
+        // history.push("/");
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.log(e.response);
+        setLoginError("Credentials invalid");
+        setLoading(false);
+      });
   }
 
   return (
@@ -284,11 +323,24 @@ const Main = () => {
                     required
                     email={formItem.type === "email" ? "true" : "false"}
                   />
+                  {error[formItem.id] ? (
+                    <p className='warning mt-1 text-danger'>
+                      {error[formItem.id][0]}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
               ))}
-              <button className='mb-4' type='submit'>
-                {page.buttonText}
-              </button>
+              <FormButton
+                className='mb-4'
+                type='submit'
+                loading={loading}
+                text={page.buttonText}
+              />
+              {loginError && (
+                <p className='warning mt-1 text-danger'>Credentials invalid</p>
+              )}
               <p>{page.paragraphText}</p>
             </form>
           </div>
