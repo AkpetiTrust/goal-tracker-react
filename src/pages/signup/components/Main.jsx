@@ -141,7 +141,7 @@ const Main = ({ history }) => {
       .then(() => {
         instance.post("/login", { email, password }).then((response) => {
           localStorage.setItem("access_token", response.data.token);
-          // history.push("/");
+          history.push("/user-home");
           setLoading(false);
         });
       })
@@ -161,7 +161,7 @@ const Main = ({ history }) => {
       .post("/login", { email, password })
       .then((response) => {
         localStorage.setItem("access_token", response.data.token);
-        // history.push("/");
+        history.push("/user-home");
         setLoading(false);
       })
       .catch((e) => {

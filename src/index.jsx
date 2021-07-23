@@ -5,6 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Signup from "./pages/signup/Signup";
+import UserHome from "./pages/UserHome/UserHome";
+import Logout from "./pages/logout/Logout";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +14,8 @@ ReactDOM.render(
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/signup' exact component={Signup} />
+        <Route path='/user-home' exact component={UserHome} />
+        <Route path='/logout' exact component={Logout} />
       </Switch>
     </Router>
   </React.StrictMode>,

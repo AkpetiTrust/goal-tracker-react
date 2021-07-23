@@ -9,7 +9,7 @@ const token = localStorage.getItem("access_token")
   : "";
 
 instance.defaults.headers.common = {
-  authorization: `Bearer ${token}`,
+  Authorization: `Bearer ${token}`,
 };
 
 export default instance;

@@ -202,6 +202,93 @@ body {
   cursor: pointer;
 }
 
+.user-home {
+  background-color: #210440;
+  color: #fff;
+}
+
+.user-home h4 {
+  font-weight: 600;
+}
+
+.user-home .form-title {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+  margin: 30px 0;
+}
+
+.user-home .form-title::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fdb095;
+  z-index: -1;
+}
+
+.user-home .form-area {
+  width: 250px;
+}
+
+.user-home .form-area input,
+.user-home .form-area textarea {
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background-color: transparent;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.user-home .form-area input[type="date"] {
+  padding-right: 10px;
+}
+
+.user-home .form-area input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.user-home .form-area textarea {
+  height: 200px;
+}
+
+.user-home .form-area button {
+  border-radius: 15px;
+  background-color: #fdb095;
+  outline: none;
+  color: #000;
+  width: 100%;
+  border: none;
+  font-weight: 700;
+}
+
+.user-home .image-container {
+  width: 350px;
+  position: relative;
+}
+
+.user-home .ball {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  top: -150px;
+  background: rgba(244, 208, 79, 0.94);
+}
+
 @-webkit-keyframes slideDown {
   to {
     -webkit-transform: scaleY(0);
@@ -228,10 +315,19 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .mobile-none {
+    display: none;
+  }
   .home-main .hero {
     border-radius: 0;
   }
   .home-main .get-started .talk {
+    width: 100%;
+  }
+  .user-home .form-area {
+    width: 100%;
+  }
+  .user-home .image-container {
     width: 100%;
   }
 }
