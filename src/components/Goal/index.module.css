@@ -1,0 +1,17 @@
+.goal hr {
+  opacity: 1;
+}
+
+.details {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #cccccc;
+}
+
+.goal_name {
+  font-weight: 600;
+}
+
+.date {
+  color: #cccccc;
+}

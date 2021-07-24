@@ -1,3 +1,90 @@
-.goal-details {
+.goal_details {
   background-color: #210440;
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 0 20px;
+}
+
+.top .title {
+  font-weight: 700;
+}
+
+.settings {
+  width: 60%;
+}
+
+.settings .title {
+  font-weight: 600;
+}
+
+.goal_details input,
+.goal_details textarea {
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background-color: transparent;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.goal_details input[type="date"] {
+  padding-right: 10px;
+}
+
+.goal_details input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.goal_details textarea {
+  height: 200px;
+}
+
+.goal_details button {
+  border-radius: 15px;
+  background-color: #fdb095;
+  outline: none;
+  color: #000;
+  width: 70%;
+  border: none;
+  font-weight: 700;
+}
+
+.delete {
+  margin-top: 50px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.close {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .goal_details {
+    position: fixed;
+    top: -150vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 4;
+    padding-top: 80px;
+    padding-left: 40px;
+  }
+
+  .goal_details.active {
+    top: 0;
+  }
+
+  .close {
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

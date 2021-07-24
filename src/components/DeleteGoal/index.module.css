@@ -1,0 +1,9 @@
+.delete_goal {
+  position: fixed;
+  top: -150vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 5;
+}

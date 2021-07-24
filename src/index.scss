@@ -271,6 +271,73 @@ body {
   }
 }
 
+.goal-page {
+  background-color: $primary-color;
+  color: #fff;
+  height: 100vh;
+  overflow-y: scroll;
+
+  .notification {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+  }
+
+  .goals-list {
+    height: 80vh;
+    overflow-y: scroll;
+    border-right: 2px solid #ffffff6c;
+    .goal-list-main {
+      width: 80%;
+    }
+
+    .title {
+      font-weight: 700;
+    }
+    hr {
+      opacity: 1;
+    }
+
+    .input-area {
+      width: 70%;
+      position: relative;
+      height: 28px;
+      input {
+        width: 100%;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background-color: transparent;
+        outline: none;
+        color: #fff;
+        height: 100%;
+        padding-left: 25px;
+        position: relative;
+
+        &::placeholder {
+          text-align: center;
+          position: absolute;
+          left: 0;
+          width: 100%;
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .add-goal {
+      background-color: transparent;
+      outline: none;
+      color: #000;
+      border: none;
+    }
+  }
+}
+
 @keyframes slideDown {
   to {
     transform: scaleY(0);
@@ -309,6 +376,26 @@ body {
 
     .image-container {
       width: 100%;
+    }
+  }
+
+  .goal-page {
+    background-color: $primary-color;
+    color: #fff;
+    .notification {
+      left: 50%;
+      bottom: 30px;
+      top: unset;
+      transform: translateX(-50%);
+    }
+
+    .goals-list {
+      border: none;
+      height: unset;
+      overflow-y: unset;
+      .goal-list-main {
+        width: 100%;
+      }
     }
   }
 }

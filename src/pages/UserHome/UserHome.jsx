@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/footer/Footer";
 import instance from "../../axios";
+import FormButton from "../../components/FormButton/FormButton";
 
 const UserHome = ({ history }) => {
   const [navItems] = useState([
@@ -41,6 +42,8 @@ const UserHome = ({ history }) => {
 
   const [user, setUser] = useState({ name: "User" });
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const token = localStorage.getItem("access_token")
       ? localStorage.getItem("access_token")
@@ -61,6 +64,19 @@ const UserHome = ({ history }) => {
       });
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const name = e.currentTarget.name.value;
+    const description = e.currentTarget.description.value;
+    const deadline = e.currentTarget.deadline.value;
+    instance
+      .post("/insert", { name, description, deadline })
+      .then((response) => {
+        history.push(`/goals/${response.data.id}`);
+      });
+  };
+
   return (
     <div className='user-home'>
       <main className='px-5'>
@@ -70,19 +86,20 @@ const UserHome = ({ history }) => {
             <h4>Welcome {user.name}, what goal do you have for today?</h4>
             <div className='form-area mt-3'>
               <p className='form-title'>New Goal</p>
-              <form className='mt-1'>
+              <form className='mt-1' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Name:</label>
-                <input type='text' name='name' id='name' />
+                <input type='text' name='name' id='name' required />
                 <label htmlFor='deadline'>Deadline:</label>
                 <input
                   type='date'
                   name='deadline'
                   defaultValue={new Date().toLocaleDateString("en-CA")}
                   id='deadline'
+                  required
                 />
                 <label htmlFor='description'>Description:</label>
                 <textarea name='description' id='description'></textarea>
-                <button type='submit'>ADD GOAL</button>
+                <FormButton loading={loading} text='ADD GOAL' type='submit' />
               </form>
             </div>
           </div>

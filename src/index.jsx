@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import Signup from "./pages/signup/Signup";
 import UserHome from "./pages/UserHome/UserHome";
 import Logout from "./pages/logout/Logout";
+import GoalPage from "./pages/GoalPage/GoalPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path='/signup' exact component={Signup} />
         <Route path='/user-home' exact component={UserHome} />
         <Route path='/logout' exact component={Logout} />
+        <Route path='/goals/:id?' exact component={GoalPage} />
       </Switch>
     </Router>
   </React.StrictMode>,
