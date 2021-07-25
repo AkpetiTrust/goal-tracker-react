@@ -9,6 +9,14 @@
   font-weight: 700;
 }
 
+.date .progress {
+  font-weight: 800;
+}
+
+.date {
+  color: #cccccc;
+}
+
 .settings {
   width: 60%;
 }
@@ -17,8 +25,8 @@
   font-weight: 600;
 }
 
-.goal_details input,
-.goal_details textarea {
+.goal_details .settings input,
+.goal_details .settings textarea {
   width: 100%;
   border: 1px solid #fff;
   border-radius: 20px;
@@ -30,20 +38,20 @@
   padding-left: 10px;
 }
 
-.goal_details input[type="date"] {
+.goal_details .settings input[type="date"] {
   padding-right: 10px;
 }
 
-.goal_details input[type="date"]::-webkit-calendar-picker-indicator {
+.goal_details .settings input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   filter: invert(1);
 }
 
-.goal_details textarea {
+.goal_details .settings textarea {
   height: 200px;
 }
 
-.goal_details button {
+.goal_details .settings button {
   border-radius: 15px;
   background-color: #fdb095;
   outline: none;
@@ -61,6 +69,10 @@
 
 .close {
   display: none;
+}
+
+.icon {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
@@ -86,5 +98,9 @@
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .settings {
+    width: 80%;
   }
 }

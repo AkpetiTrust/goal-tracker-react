@@ -1,0 +1,26 @@
+.add_goal {
+  visibility: hidden;
+  width: 70%;
+}
+
+.add_goal input {
+  all: unset;
+  width: 100%;
+  cursor: text;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 20px;
+}
+
+.add_goal.shown {
+  visibility: visible;
+}
+
+.add_goal button {
+  border-radius: 15px;
+  background-color: #fdb095;
+  outline: none;
+  color: #000;
+  width: 70%;
+  border: none;
+  font-weight: 700;
+}

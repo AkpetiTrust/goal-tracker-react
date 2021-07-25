@@ -5,6 +5,7 @@ import Goal from "../../components/Goal/Goal";
 import GoalDetails from "../../components/GoalDetails/GoalDetails";
 import Loading from "../../components/Loading/Loading";
 import { Link } from "react-router-dom";
+import DeleteGoal from "../../components/DeleteGoal/DeleteGoal";
 
 const GoalPage = ({ history, match }) => {
   const [navItems] = useState([
@@ -54,14 +55,31 @@ const GoalPage = ({ history, match }) => {
 
   const [detailsActive, setDetailsActive] = useState(!!match.params.id);
 
+  const [deleteActive, setDeleteActive] = useState(false);
+
+  const [deleteID, setDeleteID] = useState(activeId);
+
+  const [editActive, setEditActive] = useState(false);
+
   const findGoalById = (id) => goals.find((goal) => goal.id === id);
 
-  const fetchGoals = () =>{
+  const fetchGoals = () => {
     instance.get("/goals").then((response) => {
       setGoals(response.data.goals);
       setGoalsToShow(response.data.goals);
     });
-  }
+  };
+
+  const deleteGoal = (goal_id, setLoading) => {
+    setLoading(true);
+    instance.post("/delete", { goal_id }).then(() => {
+      setDeleteActive(false);
+      setDetailsActive(false);
+      setLoading(false);
+      setActiveId(1);
+      fetchGoals();
+    });
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("access_token")
@@ -78,9 +96,7 @@ const GoalPage = ({ history, match }) => {
         const user = response.data.user;
         setUser(user);
       })
-      .then(
-        fetchGoals()
-      )
+      .then(fetchGoals())
       .catch(() => {
         history.push("/signup");
       });
@@ -166,6 +182,17 @@ const GoalPage = ({ history, match }) => {
                 active={detailsActive}
                 goalObject={findGoalById(activeId)}
                 setDetailsActive={setDetailsActive}
+                setDeleteID={setDeleteID}
+                setDeleteActive={setDeleteActive}
+                editActive={editActive}
+                setEditActive={setEditActive}
+                fetchGoals={fetchGoals}
+              />
+              <DeleteGoal
+                active={deleteActive}
+                id={deleteID}
+                setDeleteActive={setDeleteActive}
+                deleteGoal={deleteGoal}
               />
             </div>
           </div>
