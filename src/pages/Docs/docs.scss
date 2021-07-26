@@ -1,0 +1,80 @@
+$docs-primary: #1b17d9;
+
+.docs {
+  background-color: rgba(255, 255, 255, 0.8);
+  .hero .nav-link {
+    color: rgba(0, 0, 0, 0.8);
+
+    &::before {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .hero-title {
+    font-weight: 700;
+    color: $docs-primary;
+  }
+
+  main {
+    width: 50%;
+
+    .introduction {
+      .title {
+        font-weight: 700;
+        font-size: 1.2em;
+      }
+
+      a {
+        color: $docs-primary;
+      }
+    }
+
+    .endpoints {
+      .title {
+        font-weight: 700;
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+.endpoint-title {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.endpoint-main {
+  padding-left: 20px;
+
+  .group {
+    margin-bottom: 20px;
+    .group-title {
+      font-weight: 700;
+      position: relative;
+      width: max-content;
+      margin-bottom: 5px;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: 4px;
+        height: 6px;
+        z-index: -1;
+        background-color: #fdb095;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .docs {
+    .hero .nav-link {
+      color: #fff;
+    }
+    main {
+      width: 100%;
+    }
+  }
+}

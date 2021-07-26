@@ -1,0 +1,78 @@
+.docs {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.docs .hero .nav-link {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.docs .hero .nav-link::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.docs .hero-title {
+  font-weight: 700;
+  color: #1b17d9;
+}
+
+.docs main {
+  width: 50%;
+}
+
+.docs main .introduction .title {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.docs main .introduction a {
+  color: #1b17d9;
+}
+
+.docs main .endpoints .title {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+.endpoint-title {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.endpoint-main {
+  padding-left: 20px;
+}
+
+.endpoint-main .group {
+  margin-bottom: 20px;
+}
+
+.endpoint-main .group .group-title {
+  font-weight: 700;
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 5px;
+  z-index: 1;
+}
+
+.endpoint-main .group .group-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 4px;
+  height: 6px;
+  z-index: -1;
+  background-color: #fdb095;
+}
+
+@media screen and (max-width: 600px) {
+  .docs .hero .nav-link {
+    color: #fff;
+  }
+  .docs main {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=docs.css.map */
