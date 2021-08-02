@@ -338,6 +338,71 @@ body {
   }
 }
 
+.contact {
+  background-color: $primary-color;
+  color: #fff;
+
+  .main-inner {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+
+    .before {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: -350px;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .talk {
+      color: rgba($color: #fff, $alpha: 0.75);
+      font-weight: 300;
+    }
+
+    .group {
+      margin-bottom: 20px;
+      input,
+      textarea {
+        all: unset;
+        border: 1px solid $secondary-color;
+        border-radius: 20px;
+        width: 60%;
+        display: block;
+        padding-left: 10px;
+        margin-top: 10px;
+      }
+
+      textarea {
+        height: 100px;
+        border-radius: 20px;
+        resize: vertical;
+      }
+
+      .submit {
+        all: unset;
+        width: 60%;
+        background-color: $secondary-color;
+        border-radius: 20px;
+        font-weight: 700;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        padding: 5px 8px;
+        height: 30px;
+        color: #000;
+      }
+    }
+  }
+}
+
 @keyframes slideDown {
   to {
     transform: scaleY(0);
@@ -395,6 +460,27 @@ body {
       overflow-y: unset;
       .goal-list-main {
         width: 100%;
+      }
+    }
+  }
+
+  .contact {
+    .main-inner {
+      margin-top: 2.5rem;
+
+      .title {
+        text-align: left;
+      }
+
+      .group {
+        input,
+        textarea {
+          width: 100%;
+        }
+
+        .submit {
+          width: 100%;
+        }
       }
     }
   }

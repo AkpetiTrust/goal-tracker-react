@@ -88,12 +88,12 @@ const GoalPage = ({ history, match }) => {
       return;
     }
 
-    value = value.toLowerCase();
+    value = value.trim().toLowerCase();
 
     let filtered = goals.filter(
       (goalObject) =>
-        String(goalObject.name).toLowerCase().includes(value) ||
-        String(goalObject.description).toLowerCase().includes(value)
+        String(goalObject.name).trim().toLowerCase().includes(value) ||
+        String(goalObject.description).trim().toLowerCase().includes(value)
     );
 
     setGoalsToShow(filtered);

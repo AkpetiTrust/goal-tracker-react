@@ -9,6 +9,8 @@ import UserHome from "./pages/UserHome/UserHome";
 import Logout from "./pages/logout/Logout";
 import GoalPage from "./pages/GoalPage/GoalPage";
 import Docs from "./pages/Docs/Docs";
+import Contact from "./pages/Contact/Contact";
+import Download from "./pages/Download/Download";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +21,8 @@ ReactDOM.render(
         <Route path='/user-home' exact component={UserHome} />
         <Route path='/logout' exact component={Logout} />
         <Route path='/docs' exact component={Docs} />
+        <Route path='/contact' exact component={Contact} />
+        <Route path='/download' exact component={Download} />
         <Route path='/goals/:id?' exact component={GoalPage} />
       </Switch>
     </Router>

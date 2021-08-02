@@ -1,0 +1,12 @@
+.download .title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.download .talk p {
+  max-width: 400px;
+}
+
+.download .talk p a {
+  text-decoration: none;
+}
