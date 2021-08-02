@@ -81,6 +81,24 @@ const GoalPage = ({ history, match }) => {
     });
   };
 
+  const filterGoalsToShow = (e) => {
+    let value = e.currentTarget.value;
+    if (!value) {
+      setGoalsToShow(goals);
+      return;
+    }
+
+    value = value.toLowerCase();
+
+    let filtered = goals.filter(
+      (goalObject) =>
+        String(goalObject.name).toLowerCase().includes(value) ||
+        String(goalObject.description).toLowerCase().includes(value)
+    );
+
+    setGoalsToShow(filtered);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("access_token")
       ? localStorage.getItem("access_token")
@@ -128,7 +146,11 @@ const GoalPage = ({ history, match }) => {
               <div className='goal-list-main'>
                 <div className='d-flex justify-content-between'>
                   <div className='input-area'>
-                    <input type='text' placeholder='Search' />
+                    <input
+                      type='text'
+                      placeholder='Search'
+                      onChange={filterGoalsToShow}
+                    />
                     <svg
                       width='16'
                       height='16'
@@ -166,7 +188,7 @@ const GoalPage = ({ history, match }) => {
                 <div className='goals-list-inner'>
                   {goalsToShow.map((goalObject, index) => (
                     <Goal
-                      key={index}
+                      key={goalObject.id}
                       goalObject={goalObject}
                       setActiveId={setActiveId}
                       setDetailsActive={setDetailsActive}
