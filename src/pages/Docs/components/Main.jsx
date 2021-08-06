@@ -17,7 +17,7 @@ const Main = () => {
       </section>
       <section className='endpoints mt-4'>
         <p className='title'>Endpoints/Routes</p>
-        <p>There are 8 different endpoints in the API.</p>
+        <p>There are 9 different endpoints in the API.</p>
         <div className='endpoint'>
           <p className='endpoint-title'>1. /signup</p>
           <div className='endpoint-main'>
@@ -220,6 +220,30 @@ const Main = () => {
               <p className='group-title'>Response:</p>
               <Code>"Edited"</Code>
               <p>To edit the goal completely, not just the steps</p>
+            </div>
+          </div>
+        </div>
+        <div className='endpoint'>
+          <p className='endpoint-title'>9. /delete-all</p>
+          <div className='endpoint-main'>
+            <div className='group'>
+              <p className='group-title'>Request type:</p>
+              <p>POST</p>
+            </div>
+            <div className='group'>
+              <p className='group-title'>Authorization:</p>
+              <p>None</p>
+            </div>
+            <div className='group'>
+              <p className='group-title'>Parameters:</p>
+              None
+            </div>
+            <div className='group'>
+              <p className='group-title'>Response:</p>
+              <Code>"All goals deleted"</Code>
+              <p>
+                To delete all a user's goals, if you really want to be that guy.
+              </p>
             </div>
           </div>
         </div>

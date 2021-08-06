@@ -34,7 +34,7 @@ const GoalDetails = ({
       Authorization: `Bearer ${token}`,
     };
 
-    if (!stepsSet || goalId !== goalObject.id) {
+    if (!stepsSet || goalId !== goalObject?.id) {
       if (goalObject) {
         setSteps(
           JSON.parse(goalObject.steps_json)
